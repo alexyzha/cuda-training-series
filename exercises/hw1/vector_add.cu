@@ -43,7 +43,7 @@ int main(){
   // copy vector A to device:
   cudaMemcpy(d_A, h_A, DSIZE*sizeof(float), cudaMemcpyHostToDevice);
   // copy vector B to device:
-  cuadMemcpy(d_B, h_b, DSIZE*sizeof(float), cudaMemoryHostToDevice);
+  cudaMemcpy(d_B, h_B, DSIZE*sizeof(float), cudaMemcpyHostToDevice);
   cudaCheckErrors("cudaMemcpy H2D failure");
 
   //cuda processing sequence step 1 is complete
