@@ -31,7 +31,7 @@ __global__ void mmul(const float *A, const float *B, float *C, int ds) {
   if ((idx < ds) && (idy < ds)){
     float temp = 0;
     for (int i = 0; i < ds; i++)
-      temp += A[FIXME*ds+i] * B[i*ds+FIXME];   // dot product of row and column
+      temp += A[idy*ds+i] * B[i*ds+idx];   // dot product of row and column
     C[idy*ds+idx] = temp;
   }
 }
@@ -54,7 +54,8 @@ int main(){
   for (int i = 0; i < DSIZE*DSIZE; i++){
     h_A[i] = A_val;
     h_B[i] = B_val;
-    h_C[i] = 0;}
+    h_C[i] = 0;
+  }
 
   // Initialization timing
   t1 = clock();
